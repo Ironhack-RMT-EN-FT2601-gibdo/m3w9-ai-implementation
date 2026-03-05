@@ -178,6 +178,20 @@ button:active {
   background-color: #2196f3;
 }
 
+.title-input-container {
+  display: flex;
+}
+
+.title-input-container div {
+  width: 70%;
+  margin-right: 20px;
+  margin-bottom: 0;
+}
+
+.title-input-container button {
+  padding: 20px
+}
+
 /* Recipe list */
 
 .recipe-list {
