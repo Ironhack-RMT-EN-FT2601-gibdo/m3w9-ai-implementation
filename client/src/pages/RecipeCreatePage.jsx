@@ -13,6 +13,7 @@ function RecipeCreatePage() {
     isVegetarian: false,
     isGlutenFree: false,
   });
+  const [isGenerating, setIsGenerating] = useState(false)
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -62,6 +63,7 @@ function RecipeCreatePage() {
       return // prevents call if no title and expects at least 3 character string.
     }
 
+    setIsGenerating(true);
     // request logic here...
     
   }
@@ -80,7 +82,9 @@ function RecipeCreatePage() {
               onChange={handleChange}
               required
             />
-            <button type="button" disabled={!form.title} onClick={handleGenerateRecipeAI}>Generate 🤖</button>
+            <button type="button" disabled={!form.title || isGenerating} onClick={handleGenerateRecipeAI}>
+              {isGenerating ? "Generating..." : "Generate 🤖"}
+            </button>
           </div>
         </div>
 
