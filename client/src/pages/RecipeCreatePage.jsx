@@ -65,6 +65,21 @@ function RecipeCreatePage() {
 
     setIsGenerating(true);
     // request logic here...
+
+    try {
+      
+      const body = {
+        title: form.title
+      }
+
+      const response = await service.post("/recipes/AI-generated-content", body)
+      console.log(response)
+      setForm(response.data)
+      setIsGenerating(false)
+
+    } catch (error) {
+      console.log(error)
+    }
     
   }
 
